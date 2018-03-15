@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var stops = [Stops]()
     var managedObjectContext: NSManagedObjectContext!
+    var identifier = ""
     /*var managedObjectContext: NSManagedObjectContext! {
         didSet {
             NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange, object: managedObjectContext, queue: OperationQueue.main) { notification in
@@ -97,6 +98,14 @@ class MapViewController: UIViewController {
             //drawing the response
             //let line = MKPolyline(coordinates: [sourceLocation,destinationLocation], count: 2)
            // self.mapView.add(line, level: MKOverlayLevel.aboveRoads)
+            //let polyline: MKPolyline = MKPolyline()
+            //polyline.tag = 100 //any number that you will use to identify this overlay
+            print(route.description)
+            self.identifier = route.name
+            print(self.identifier)
+            print("\n")
+            
+           // self.mapView.add(polyline)
             self.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
             //let rect = line.boundingMapRect
             let rect = route.polyline.boundingMapRect
@@ -105,12 +114,15 @@ class MapViewController: UIViewController {
     }
     @IBAction func UndoRoute(){
         //mapView.removeAnnotations(stops as! [MKAnnotation])
-      
+        
         for overlay in mapView.overlays {
-            
+            print(overlay.description)
+            print("\(overlay.title)")
+            print("\n")
+            if "SChurchSt" == overlay.title as! String {
             mapView.remove(overlay)
             }
-     
+        }
         /*mapView.delegate = self
         let sourceLocation = CLLocationCoordinate2D(latitude: 32.305377, longitude: -106.780586)
         let destinationLocation = CLLocationCoordinate2D(latitude: 32.312349, longitude: -106.778191)
