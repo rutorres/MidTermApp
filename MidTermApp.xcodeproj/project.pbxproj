@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D0598BE205A832600C281A6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D0598BC205A832600C281A6 /* DataModel.xcdatamodeld */; };
+		6D0598C1205A850500C281A6 /* Stops+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0598BF205A850500C281A6 /* Stops+CoreDataClass.swift */; };
+		6D0598C2205A850500C281A6 /* Stops+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0598C0205A850500C281A6 /* Stops+CoreDataProperties.swift */; };
+		6D0598C4205A953000C281A6 /* R1StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0598C3205A953000C281A6 /* R1StopViewController.swift */; };
 		6DB7BC4E20573C7200BF6AFF /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB7BC4D20573C7200BF6AFF /* RoutesViewController.swift */; };
 		6DB7BC5020573C7B00BF6AFF /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB7BC4F20573C7B00BF6AFF /* Route.swift */; };
 		6DB7BC5220573C8500BF6AFF /* routes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6DB7BC5120573C8500BF6AFF /* routes.xml */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D0598BD205A832600C281A6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		6D0598BF205A850500C281A6 /* Stops+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stops+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D0598C0205A850500C281A6 /* Stops+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stops+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D0598C3205A953000C281A6 /* R1StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R1StopViewController.swift; sourceTree = "<group>"; };
 		6DB7BC4D20573C7200BF6AFF /* RoutesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		6DB7BC4F20573C7B00BF6AFF /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		6DB7BC5120573C8500BF6AFF /* routes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = routes.xml; sourceTree = "<group>"; };
@@ -75,6 +83,8 @@
 		6DEBB0F32056E95E0015B456 = {
 			isa = PBXGroup;
 			children = (
+				6D0598BF205A850500C281A6 /* Stops+CoreDataClass.swift */,
+				6D0598C0205A850500C281A6 /* Stops+CoreDataProperties.swift */,
 				6DEBB0FE2056E95E0015B456 /* MidTermApp */,
 				6DEBB0FD2056E95E0015B456 /* Products */,
 				6DB7BC5B20577C2A00BF6AFF /* Frameworks */,
@@ -97,6 +107,7 @@
 				6DEBB1082056E95E0015B456 /* Assets.xcassets */,
 				6DEBB10A2056E95E0015B456 /* LaunchScreen.storyboard */,
 				6DEBB1132056E9F10015B456 /* Main.storyboard */,
+				6D0598BC205A832600C281A6 /* DataModel.xcdatamodeld */,
 				6DB7BC5E20577DFF00BF6AFF /* MapViewController.swift */,
 				6DEBB1152056EA110015B456 /* CategoryPickerViewController.swift */,
 				6DEBB1172056EA260015B456 /* LocationDetailsViewController.swift */,
@@ -107,6 +118,7 @@
 				6DEBB11F205702340015B456 /* PDFDisplayViewController.swift */,
 				6DB7BC4D20573C7200BF6AFF /* RoutesViewController.swift */,
 				6DB7BC5320574F3900BF6AFF /* StopsViewController.swift */,
+				6D0598C3205A953000C281A6 /* R1StopViewController.swift */,
 				6DB7BC4F20573C7B00BF6AFF /* Route.swift */,
 				6DB7BC592057597100BF6AFF /* Stop.swift */,
 				6DB7BC5120573C8500BF6AFF /* routes.xml */,
@@ -197,14 +209,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DB7BC5F20577DFF00BF6AFF /* MapViewController.swift in Sources */,
+				6D0598C2205A850500C281A6 /* Stops+CoreDataProperties.swift in Sources */,
 				6DB7BC5020573C7B00BF6AFF /* Route.swift in Sources */,
 				6DEBB120205702340015B456 /* PDFDisplayViewController.swift in Sources */,
 				6DEBB1162056EA110015B456 /* CategoryPickerViewController.swift in Sources */,
 				6DEBB11A2056EA400015B456 /* CurrentLocationViewController.swift in Sources */,
 				6DEBB1042056E95E0015B456 /* SecondViewController.swift in Sources */,
+				6D0598C1205A850500C281A6 /* Stops+CoreDataClass.swift in Sources */,
 				6DEBB1002056E95E0015B456 /* AppDelegate.swift in Sources */,
+				6D0598C4205A953000C281A6 /* R1StopViewController.swift in Sources */,
 				6DB7BC4E20573C7200BF6AFF /* RoutesViewController.swift in Sources */,
 				6DB7BC5A2057597100BF6AFF /* Stop.swift in Sources */,
+				6D0598BE205A832600C281A6 /* DataModel.xcdatamodeld in Sources */,
 				6DB7BC5420574F3900BF6AFF /* StopsViewController.swift in Sources */,
 				6DEBB1182056EA260015B456 /* LocationDetailsViewController.swift in Sources */,
 			);
@@ -383,6 +399,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6D0598BC205A832600C281A6 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D0598BD205A832600C281A6 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 6D0598BD205A832600C281A6 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6DEBB0F42056E95E0015B456 /* Project object */;
 }

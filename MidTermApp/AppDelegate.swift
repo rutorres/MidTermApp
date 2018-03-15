@@ -7,15 +7,45 @@
 //
 
 import UIKit
+import CoreData
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "DataModel")
+        container.loadPersistentStores(completionHandler: {
+            storeDescription, error in
+            if let error = error {
+                fatalError("Could load data store: \(error)")
+            }
+        })
+        return container
+    }()
+    
+    lazy var managedObjectContext: NSManagedObjectContext =
+        self.persistentContainer.viewContext
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let tabController = window!.rootViewController as! UITabBarController
+        if let tabViewControllers = tabController.viewControllers {
+            //first tab
+            var navController = tabViewControllers[0] as! UINavigationController
+            let controller1 = navController.viewControllers.first as! CurrentLocationViewController
+            controller1.managedObjectContext = managedObjectContext
+            //third tab
+            navController = tabViewControllers[2] as! UINavigationController
+            let controller2 = navController.viewControllers.first as! MapViewController
+            controller2.managedObjectContext = managedObjectContext
+            //fourth tab
+             navController = tabViewControllers[3] as! UINavigationController
+            let controller3 = navController.viewControllers.first as! R1StopViewController
+            controller3.managedObjectContext = managedObjectContext
+        }
+        //listenForFatalCoreDataNotifications()
         return true
     }
 
