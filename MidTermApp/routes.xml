@@ -1,23 +1,28 @@
 <?xml version="1.0"?>
 <catalog>
     <route id="1">
+        <num>1</num>
         <name>Route 1</name>
-        <color>Green</color>
+        <color>Orange</color>
     </route>
     <route id="2">
+        <num>2</num>
         <name>Route 2</name>
-        <color>Red</color>
+        <color>Yellow</color>
     </route>
     <route id="3">
+        <num>3</num>
         <name>Route 3</name>
         <color>Blue</color>
     </route>
     <route id="4">
+        <num>4</num>
         <name>Route 4</name>
-        <color>Yellow</color>
+        <color>Red</color>
     </route>
     <route id="5">
+        <num>5</num>
         <name>Route 5</name>
-        <color>Orange</color>
+        <color>Green</color>
     </route>
 </catalog>

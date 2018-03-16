@@ -8,6 +8,7 @@
 
 import Foundation
 class Route {
+    var routeNum: Int = Int()
     var routeName: String = String()
     var routeColor: String = String()
 }

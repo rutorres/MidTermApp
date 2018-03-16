@@ -11,8 +11,10 @@ import UIKit
 class RoutesViewController: UITableViewController, XMLParserDelegate {
     var routes: [Route] = []
     var eName: String = String()
+    var routeNum = Int()
     var routeName = String()
     var routeColor = String()
+    var currentRoute = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +46,11 @@ class RoutesViewController: UITableViewController, XMLParserDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath)
         
         let route = routes[indexPath.row]
-        
+        currentRoute = route.routeNum
         cell.textLabel?.text = route.routeName
         cell.detailTextLabel?.text = route.routeColor
         let imageName = UIImage(named: route.routeColor)
         cell.imageView?.image = imageName
-        
         return cell
     }
 
@@ -59,6 +60,7 @@ class RoutesViewController: UITableViewController, XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
         if elementName == "route" {
+            routeNum = Int()
             routeName = String()
             routeColor = String()
         }
@@ -68,6 +70,7 @@ class RoutesViewController: UITableViewController, XMLParserDelegate {
         if elementName == "route" {
             
             let route = Route()
+            route.routeNum = routeNum
             route.routeName = routeName
             route.routeColor = routeColor
             print(route)
@@ -91,7 +94,9 @@ class RoutesViewController: UITableViewController, XMLParserDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PDF" {
             let controller = segue.destination as! PDFDisplayViewController
-            controller.route = 1
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.route = (indexPath.row + 1)
+            }
         }
     }
  
