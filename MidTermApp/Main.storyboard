@@ -219,6 +219,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSM-4L-SIM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CNr-eZ-0NP" id="gGg-dk-FGd"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -233,7 +236,7 @@
                             </barButtonItem>
                             <barButtonItem title="Route 1" id="hZV-wK-RLq">
                                 <connections>
-                                    <action selector="showRoutes" destination="CNr-eZ-0NP" id="U94-z9-I3s"/>
+                                    <action selector="drawRegion" destination="CNr-eZ-0NP" id="xhQ-Q3-CuE"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>

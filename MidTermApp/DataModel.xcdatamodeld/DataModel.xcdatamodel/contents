@@ -5,10 +5,11 @@
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="placemark" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="route" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="routeID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="stopDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stopNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Stops" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Stops" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
