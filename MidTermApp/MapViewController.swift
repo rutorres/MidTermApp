@@ -16,11 +16,13 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     var stops = [Stops]()
+    var stopsR2 = [StopsR2]()
     //sets up an observer to the Object for when changes happen
     var managedObjectContext: NSManagedObjectContext! {
         didSet {
             NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange, object: managedObjectContext, queue: OperationQueue.main) { notification in
                 if self.isViewLoaded {
+                    self.updateStopsR2()
                     self.updateStops()
                 }
             }
@@ -32,10 +34,14 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateStops()
-        if !stops.isEmpty {
+        updateStopsR2()
+        /*if !stops.isEmpty {
             showLocations()
-            //drawRegion(for: stops)
+        }*/
+        if !stopsR2.isEmpty {
+            //showLocationsR2()
         }
+        
     }
 
     
@@ -46,14 +52,12 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func showLocations() {
-        //let location = CLLocationCoordinate2D(latitude: 32.305377, longitude: -106.780586)
-        //let span = MKCoordinateSpanMake(0.05, 0.05)
-       // let region = MKCoordinateRegion(center: location, span: span)
-        //mapView.setRegion(region, animated: true)
-
         let theRegion = region(for: stops)
         mapView.setRegion(theRegion, animated: true)
-
+    }
+    @IBAction func showLocationsR2() {
+        let theRegion = region(for: stopsR2)
+        mapView.setRegion(theRegion, animated: true)
     }
     @IBAction func showRoutes(){
         mapView.delegate = self as MKMapViewDelegate
@@ -68,7 +72,7 @@ class MapViewController: UIViewController {
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationMapItem
         directionRequest.transportType = .automobile
-        // Calculate the direction
+        // Calculate the address
         let directions = MKDirections(request: directionRequest)
         directions.calculate {
             (response, error) -> Void in
@@ -94,19 +98,14 @@ class MapViewController: UIViewController {
         //mapView.removeAnnotations(stops as! [MKAnnotation])
         
         for overlay in mapView.overlays {
-            //print(overlay.description)
-            //print("\(overlay.title)")
-            //print("\n")
-            //if "SChurchSt" == overlay.title as! String {
             mapView.remove(overlay)
-            //}
         }
-       
     }
     
     @IBAction func drawRegion() {
-        
+        //THis is for Route #1
         for i in 0..<(stops.count-1){
+        
             mapView.delegate = self
             let source = stops[i]
             let destination = stops[i+1]
@@ -172,6 +171,14 @@ class MapViewController: UIViewController {
         mapView.addAnnotations(stops)
     }
     
+    func updateStopsR2(){
+        //mapView.removeAnnotations(stopsR2 as [MKAnnotation])
+        let entity = StopsR2.entity()
+        let fetchRequest = NSFetchRequest<StopsR2>()
+        fetchRequest.entity = entity
+        stopsR2 = try! managedObjectContext.fetch(fetchRequest)
+        mapView.addAnnotations(stopsR2)
+    }
     func region(for annotations: [MKAnnotation]) -> MKCoordinateRegion {
         let region: MKCoordinateRegion
         
@@ -179,7 +186,6 @@ class MapViewController: UIViewController {
         case 0:
             region = MKCoordinateRegionMakeWithDistance(
                 mapView.userLocation.coordinate, 1000, 1000)
-            
         case 1:
             let annotation = annotations[annotations.count - 1]
             region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 1000, 1000)

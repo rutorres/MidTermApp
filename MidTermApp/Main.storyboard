@@ -229,14 +229,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="KaV-Yy-0So">
                         <leftBarButtonItems>
-                            <barButtonItem title="Routes" id="OjM-td-pPP">
-                                <connections>
-                                    <action selector="showLocations" destination="CNr-eZ-0NP" id="1X3-SE-94t"/>
-                                </connections>
-                            </barButtonItem>
                             <barButtonItem title="Route 1" id="hZV-wK-RLq">
                                 <connections>
                                     <action selector="drawRegion" destination="CNr-eZ-0NP" id="xhQ-Q3-CuE"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Route 2" id="BcQ-kr-fFt">
+                                <connections>
+                                    <action selector="showLocationsR2" destination="CNr-eZ-0NP" id="yge-FM-m5P"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
